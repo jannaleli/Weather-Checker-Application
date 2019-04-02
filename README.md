@@ -36,7 +36,7 @@ Add some bits and bobs of multimedia. Due to the lack of time, I have not been a
 Spend more in creating test case for the applications.
 
 ### Code
-I will create App Constants that would enable the readability of the application
+I will create App Constants that would enable the readability of the code when other iOS developers view the code. 
 
 ### Loading
 
