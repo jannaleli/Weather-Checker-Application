@@ -14,47 +14,8 @@ The app is developed on top of Swift 4 using Native iOS APIs such as UIKit and F
 * Swift 4
 * [OpenWeatherMap 5 day forecast](http://openweathermap.org/forecast5)
 
-## Building
-Assuming node 6.5.0
-
 ```
-npm install
-npm start
-```
-This will start up the app in development mode.
-Navigate to [http://localhost:3000](http://localhost:3000)
-
-## Testing with Jest
-Using [Jest](https://facebook.github.io/jest/):
-
-```
-CI=true npm test -- --coverage
-```
-
-You can launch Jest in watch mode which is great during development:
-```
-npm test
-```
-
-## Testing with Cucumber
-Assuming ruby 2.2.3 and chromedriver are installed
-
-Start up server in cucumber mode:
-```
-npm run start_in_cucumber_mode
-```
-
-In another shell run cucumber
-
-```
-cd cucumber
-bundle install
-cucumber
-```
-
-It also supports running in a headless browser. Assummg Phantomjs is installed:
-```
-cucumber browser=phantom
+Questions
 ```
 
 # Better User Experience for iOS Users
