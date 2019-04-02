@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CoreData
 
-struct Weather: Codable {
+struct Weather:  Codable {
  
         struct List: Codable {
             struct Main : Codable {
@@ -64,7 +65,11 @@ struct Weather: Codable {
         let cod: String
         let cnt: Int
         let list: [List]
-        let city: City
+         let city: City
     
-    
+
 }
+
+
+
+

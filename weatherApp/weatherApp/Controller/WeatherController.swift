@@ -7,8 +7,27 @@
 //
 
 import Foundation
+import CoreData
 
 public class WeatherManager {
+    
+    open func saveUserDefaults(response: AnyObject){
+
+            UserDefaults.standard.set(response , forKey: "Weather")
+        
+        
+    }
+    
+    
+    open func readUserDefaults() -> Codable? {
+        if
+        let data = UserDefaults.standard.value(forKey: "Weather") as? Data,
+        let configuration = try? JSONDecoder().decode(Weather.self, from: data) {
+            return configuration
+        }
+        return nil
+        
+    }
     
     open func getWeather(completionBlock: @escaping CompletionBlock){
         NetworkManager().retrieveWeather(completionBlock: {
@@ -20,6 +39,9 @@ public class WeatherManager {
                     // data we are getting from network request
                     let decoder = JSONDecoder()
                     let response = try decoder.decode(Weather.self, from: data! as! Data)
+                    self.saveUserDefaults(response: data!)
+                    
+                    
                     print(response.city) //Output - EMT
                     completionBlock(response as AnyObject, nil)
                 } catch { print(error) }
