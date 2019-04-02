@@ -1,6 +1,6 @@
 # 5 day forecast
 
-"Build a single HTML page displaying the 5 day weather forecast for a location of your choice."
+"Build an iOS application displaying the 5 day weather forecast for a location of your choice."
 
 ## My Solution
 
@@ -12,10 +12,11 @@ The app is developed on top of Swift 4 using Native iOS APIs such as UIKit and F
 
 * iOS
 * Swift 4
+* Xcode 10.1
 * [OpenWeatherMap 5 day forecast](http://openweathermap.org/forecast5)
 
 ```
-Questions
+Tested on iPhone XR, iPhone XS, iPhone 8, iPad
 ```
 
 # Better User Experience for iOS Users
