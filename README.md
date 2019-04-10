@@ -29,6 +29,9 @@ Tested on iPhone XR, iPhone XS, iPhone 8, iPad
 
 # If I had more time...
 
+###Use of Location Manager CLLocationManagerDelegate
+Use a location manager to dynamically determine the location of the user.
+
 ### Create a detailed view of the app
 If I had more time to develop the project, I will make sure to add a more detailed view. Right now I only have the main screen which lists down the summary of weather for each date.
 Add some bits and bobs of multimedia. Due to the lack of time, I have not been able to work on the UI as much. 
