@@ -29,7 +29,7 @@ Tested on iPhone XR, iPhone XS, iPhone 8, iPad
 
 # If I had more time...
 
-###Use of Location Manager CLLocationManagerDelegate
+### Use of Location Manager CLLocationManagerDelegate
 Use a location manager to dynamically determine the location of the user.
 
 ### Create a detailed view of the app
