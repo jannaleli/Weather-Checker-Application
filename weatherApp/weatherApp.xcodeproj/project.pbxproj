@@ -10,6 +10,15 @@
 		AB23AA4A225489F0007BA276 /* WeatherViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23AA49225489F0007BA276 /* WeatherViewProtocol.swift */; };
 		AB23AA4B225489F0007BA276 /* WeatherViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23AA49225489F0007BA276 /* WeatherViewProtocol.swift */; };
 		AB23AA4C225489F0007BA276 /* WeatherViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB23AA49225489F0007BA276 /* WeatherViewProtocol.swift */; };
+		AB4708672283070800311AF8 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4708662283070800311AF8 /* CollectionViewCell.xib */; };
+		AB4708682283070800311AF8 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4708662283070800311AF8 /* CollectionViewCell.xib */; };
+		AB4708692283070800311AF8 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4708662283070800311AF8 /* CollectionViewCell.xib */; };
+		AB47086B2283071800311AF8 /* RefreshViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB47086A2283071800311AF8 /* RefreshViewCell.xib */; };
+		AB47086C2283071800311AF8 /* RefreshViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB47086A2283071800311AF8 /* RefreshViewCell.xib */; };
+		AB47086D2283071800311AF8 /* RefreshViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB47086A2283071800311AF8 /* RefreshViewCell.xib */; };
+		AB47086F22830A4400311AF8 /* RefreshViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47086E22830A4400311AF8 /* RefreshViewCell.swift */; };
+		AB47087022830A4400311AF8 /* RefreshViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47086E22830A4400311AF8 /* RefreshViewCell.swift */; };
+		AB47087122830A4400311AF8 /* RefreshViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47086E22830A4400311AF8 /* RefreshViewCell.swift */; };
 		ABC6C33C22539019008A448C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC6C33B22539019008A448C /* CollectionViewCell.swift */; };
 		ABFA8C86225356C40095FF2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA8C85225356C40095FF2C /* AppDelegate.swift */; };
 		ABFA8C88225356C40095FF2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFA8C87225356C40095FF2C /* ViewController.swift */; };
@@ -44,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		AB23AA49225489F0007BA276 /* WeatherViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewProtocol.swift; sourceTree = "<group>"; };
+		AB4708662283070800311AF8 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		AB47086A2283071800311AF8 /* RefreshViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RefreshViewCell.xib; sourceTree = "<group>"; };
+		AB47086E22830A4400311AF8 /* RefreshViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshViewCell.swift; sourceTree = "<group>"; };
 		ABC6C33B22539019008A448C /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		ABFA8C82225356C30095FF2C /* weatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFA8C85225356C40095FF2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +171,9 @@
 				ABFA8CBB225359B60095FF2C /* WeatherViewController.swift */,
 				ABC6C33B22539019008A448C /* CollectionViewCell.swift */,
 				AB23AA49225489F0007BA276 /* WeatherViewProtocol.swift */,
+				AB4708662283070800311AF8 /* CollectionViewCell.xib */,
+				AB47086A2283071800311AF8 /* RefreshViewCell.xib */,
+				AB47086E22830A4400311AF8 /* RefreshViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,7 +293,9 @@
 			files = (
 				ABFA8C93225356C60095FF2C /* LaunchScreen.storyboard in Resources */,
 				ABFA8C90225356C60095FF2C /* Assets.xcassets in Resources */,
+				AB4708672283070800311AF8 /* CollectionViewCell.xib in Resources */,
 				ABFA8C8B225356C40095FF2C /* Main.storyboard in Resources */,
+				AB47086B2283071800311AF8 /* RefreshViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +303,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB47086C2283071800311AF8 /* RefreshViewCell.xib in Resources */,
+				AB4708682283070800311AF8 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +312,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB47086D2283071800311AF8 /* RefreshViewCell.xib in Resources */,
+				AB4708692283070800311AF8 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +326,7 @@
 			files = (
 				ABFA8C88225356C40095FF2C /* ViewController.swift in Sources */,
 				ABFA8CBC225359B60095FF2C /* WeatherViewController.swift in Sources */,
+				AB47086F22830A4400311AF8 /* RefreshViewCell.swift in Sources */,
 				ABC6C33C22539019008A448C /* CollectionViewCell.swift in Sources */,
 				ABFA8CBE22535A4C0095FF2C /* WeatherController.swift in Sources */,
 				AB23AA4A225489F0007BA276 /* WeatherViewProtocol.swift in Sources */,
@@ -321,6 +343,7 @@
 			files = (
 				ABFA8C9E225356C60095FF2C /* weatherAppTests.swift in Sources */,
 				AB23AA4B225489F0007BA276 /* WeatherViewProtocol.swift in Sources */,
+				AB47087022830A4400311AF8 /* RefreshViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +353,7 @@
 			files = (
 				ABFA8CA9225356C70095FF2C /* weatherAppUITests.swift in Sources */,
 				AB23AA4C225489F0007BA276 /* WeatherViewProtocol.swift in Sources */,
+				AB47087122830A4400311AF8 /* RefreshViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
