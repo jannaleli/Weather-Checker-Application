@@ -166,8 +166,8 @@ extension WeatherViewController {
         return CGSize.zero
     }
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width: CGFloat? = 400
-        return CGSize(width: width!, height: 100)
+        var width: CGFloat? = collectionView.frame.width
+        return CGSize(width: width!, height: 50)
     }
 
     
