@@ -9,23 +9,28 @@
 import UIKit
 
 class WeatherViewController: UICollectionViewController {
-    var dataSource: Weather? = nil
+
      let refreshControl = UIRefreshControl()
-    @IBOutlet weak var countryLabel: UILabel!
+  //  @IBOutlet weak var countryLabel: UILabel
     @IBOutlet weak var progressIndicator: UIActivityIndicatorView!
 
     
     
     enum WeatherState {
         case loading(Bool)
-        case loaded(Weather)
+        case loaded(Weather, UIImage)
         case empty
         case error(Error)
     }
     
     fileprivate var state: WeatherState = .loading(false) {
         didSet {
-            collectionView.reloadData()
+            DispatchQueue.main.async {
+                 self.collectionView.reloadData()
+            }
+            
+            
+            
             switch state {
             case .error(_), .loaded(_):
                 refreshControl.endRefreshing()
@@ -64,10 +69,10 @@ class WeatherViewController: UICollectionViewController {
                 
                 let initialData = data as? Weather
                 
-                if initialData?.list.count == 0 {
+                if initialData?.list.count == 0 || initialData == nil {
                     self.state = .empty
                 }else{
-                    self.state = .loaded(initialData!)
+                    self.loadinBackground(initialData!)
                 }
               
                 
@@ -81,31 +86,38 @@ class WeatherViewController: UICollectionViewController {
         super.viewDidLoad()
         configureTableView()
         loadWeather(fromRefreshControl: false)
-        
-        
-        
-        refreshControl.tintColor = .blue
-        refreshControl.addTarget(self, action: #selector(refreshPulled), for: .valueChanged)
         collectionView.addSubview(refreshControl)
         collectionView.alwaysBounceVertical = true
         
         
     }
     
-    func startProgress() {
-        self.progressIndicator.startAnimating()
-    }
-    
-    
-    func stopProgress(){
-        DispatchQueue.main.async {
-            self.progressIndicator.isHidden = true
-            self.progressIndicator.stopAnimating()
-            self.countryLabel.isHidden = false
-            self.countryLabel.text = self.dataSource?.city.name
-        }
-    }
 
+    private func loadinBackground(_  weather: Weather) {
+    
+        
+        
+        
+        for each in weather.list {
+            let url = "https://openweathermap.org/img/w/\(each.weather.first!.icon).png"
+            WeatherManager().sendRequestForImage(url: url, completionBlock: {
+                data, error in
+                //self.dataSource.append(data as! UIImage)
+                //self.collectioView?.reloadData()
+                
+                guard let weatherImage = data else {
+                    // self.state = .error(
+                    return
+                }
+               
+                
+                self.state = .loaded(weather, weatherImage as! UIImage)
+            })
+            
+        }
+     
+    }
+    
     
 
     /*
@@ -124,7 +136,7 @@ extension WeatherViewController {
   
      override   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
             switch state {
-            case .loaded(let weather):
+            case .loaded(let weather, let image):
                 return weather.list.count
             case .empty, .error(_):
                 return 1
@@ -137,17 +149,20 @@ extension WeatherViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch state {
             
-        case .loaded(let weather):
+        case .loaded(let weather, let image):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.cellReuseIdentifier, for: indexPath) as! CollectionViewCell
-            cell.configureWith(kind: .information(weather.city.name, weather.cod, weather.city.country))
+            
+            
+            
+            cell.configureWith(kind: .information(weather.city.name,"\(weather.list[indexPath.item].main.temp)",image))
             return cell
         case .empty:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.cellReuseIdentifier, for: indexPath) as! CollectionViewCell
-            cell.configureWith(kind: .information("Empty", "Empty", "Empty"))
+            cell.configureWith(kind: .information("Empty", "Empty", nil))
             return cell
         case .error(let Error):
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCell.cellReuseIdentifier, for: indexPath) as! CollectionViewCell
-            cell.configureWith(kind: .information("Error", "Error", "Error"))
+            cell.configureWith(kind: .information("Error", "Error", nil))
             return cell
         case .loading(let fromRefreshControl):
             if fromRefreshControl {
@@ -166,8 +181,8 @@ extension WeatherViewController {
         return CGSize.zero
     }
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var width: CGFloat? = collectionView.frame.width
-        return CGSize(width: width!, height: 50)
+        let width = collectionView.frame.width
+        return CGSize(width: width, height: 200)
     }
 
     

@@ -8,6 +8,8 @@
 
 import Foundation
 import CoreData
+import AlamofireImage
+import Alamofire
 
 public class WeatherManager {
     
@@ -53,5 +55,23 @@ public class WeatherManager {
             
         })
     }
+    
+    
+    func sendRequestForImage(url: String, completionBlock:@escaping CompletionBlock) {
+        Alamofire.request(url).responseImage { response in
+            
+            print(response)
+            guard response.result.isSuccess else {
+                completionBlock(nil, nil)
+                return
+            }
+            
+            if let image = response.result.value {
+                print("image downloaded: \(image)")
+                completionBlock(image, nil)
+            }
+        }
+    }
+    
     
 }

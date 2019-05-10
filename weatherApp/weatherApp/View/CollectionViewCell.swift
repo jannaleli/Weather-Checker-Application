@@ -11,12 +11,12 @@ import UIKit
 open class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var temperatureLabel: UILabel?
     @IBOutlet weak var cloudLabel: UILabel?
-    @IBOutlet weak var descriptionLabel: UILabel?
+    @IBOutlet weak var descriptionLabel: UIImageView?
     static let nibName = "CollectionViewCell"
     static let cellReuseIdentifier = "CollectionViewCell"
     enum WeatherState {
         case error(String)
-        case information(String, String, String)
+        case information(String, String, UIImage?)
     }
     
     func configureWith(kind: WeatherState){
@@ -24,11 +24,12 @@ open class CollectionViewCell: UICollectionViewCell {
         case .error(let message):
             temperatureLabel?.text = "Error Loading"
             cloudLabel?.text = "Error Loading"
-            descriptionLabel?.text = "Error Loading"
+       
         case .information(let temperature, let cloud, let description):
             temperatureLabel?.text = temperature
             cloudLabel?.text = cloud
-            descriptionLabel?.text = description
+            descriptionLabel?.image = description
+            
         }
     }
 }
